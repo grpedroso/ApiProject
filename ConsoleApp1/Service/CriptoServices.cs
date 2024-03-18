@@ -12,8 +12,6 @@ internal class CriptoServices
         {
             HttpClient client = new HttpClient();
 
-            client.DefaultRequestHeaders.Add("X-CoinAPI-Key", "5BB6DE8C-0339-4DCF-97EA-4F27E2152A8E");
-
             HttpResponseMessage response = await client.GetAsync("https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=1690b914-781b-4437-802a-18ce2ecfa798");
 
             if (response.IsSuccessStatusCode)
