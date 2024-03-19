@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{BE6715B3-90D9-4852-A501-89E8E32C3B2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProject.Web", "ApiProject.Web\ApiProject.Web.csproj", "{FA1C4A8D-4933-42E6-9DC4-A981AE74281B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProject.Web", "ApiProject.Web\ApiProject.Web.csproj", "{FA1C4A8D-4933-42E6-9DC4-A981AE74281B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
