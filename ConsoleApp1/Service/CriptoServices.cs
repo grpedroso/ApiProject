@@ -1,37 +1,41 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using ConsoleApp1.CriptoServices;
 using ConsoleApp1.Modelos;
 using Newtonsoft.Json;
 
-internal class CriptoServices
+namespace ConsoleApp1.CriptoServices
 {
-    public async Task<Criptos> Integracao()
+    public class CriptoServices
     {
-        try
+        public async Task<Cripto> Integracao()
         {
-            HttpClient client = new HttpClient();
-
-            HttpResponseMessage response = await client.GetAsync("https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=1690b914-781b-4437-802a-18ce2ecfa798");
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                string jsonString = await response.Content.ReadAsStringAsync();
+                HttpClient client = new HttpClient();
 
-                Criptos jsonObject = JsonConvert.DeserializeObject<Criptos>(jsonString);
+                HttpResponseMessage response = await client.GetAsync("https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=1690b914-781b-4437-802a-18ce2ecfa798");
 
-                return jsonObject;
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonString = await response.Content.ReadAsStringAsync();
+
+                    Cripto jsonObject = JsonConvert.DeserializeObject<Cripto>(jsonString);
+
+                    return jsonObject;
+                }
+                else
+                {
+                    Console.WriteLine("Erro ao fazer a requisição à API: " + response.StatusCode);
+                    return null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Erro ao fazer a requisição à API: " + response.StatusCode);
+                Console.WriteLine("Erro: " + ex.Message);
                 return null;
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Erro: " + ex.Message);
-            return null;
         }
     }
 }

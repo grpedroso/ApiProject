@@ -1,0 +1,6 @@
+@ApiProject.Api_HostAddress = https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=1690b914-781b-4437-802a-18ce2ecfa798
+
+GET {{ApiProject.Api_HostAddress}}
+Accept: application/json
+
+###

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ConsoleApp1.Modelos
 {
 
-    public class Criptos
+    public class Cripto
     {
         public List<CriptoMoedas>? Data { get; set; }
     }

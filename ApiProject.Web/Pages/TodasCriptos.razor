@@ -1,0 +1,31 @@
+﻿@page "/todascriptos"
+@using Console
+
+@inject CriptoServices services
+
+<h3>Todas as Criptos disponíveis no mercado</h3>
+
+@if (Data != null)
+{
+    <ul>
+        @foreach (var cripto in Data)
+        {
+            <li>@cripto.Name</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Carregando...</p>
+}
+
+@code {
+    private IList<CriptoMoedas> Data;
+    protected override async Task OnInitializedAsync()
+    {
+        CriptoServices services = new CriptoServices();
+        Cripto lista = await services.Integracao();
+        var criptosOrdenadas = lista.Data.OrderBy(data => data.Name).Select(data => new CriptoMoedas { Name = data.Name }).Distinct().ToList();
+        Data = criptosOrdenadas;
+    }
+}

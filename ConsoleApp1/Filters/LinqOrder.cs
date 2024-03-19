@@ -9,7 +9,7 @@ namespace ConsoleApp1.Filters
 {
     public class LinqOrder
     {
-        public static async void ExibirListaCriptosOrdenadas(Criptos lista)
+        public static async void ExibirListaCriptosOrdenadas(Cripto lista)
         {
             
             var criptosOrdenadas = lista.Data.OrderBy(data => data.Name).Select(data => data.Name).Distinct().ToList();
